@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Image Gallery</title>
+    <style>
+        /* Ajoutez ici vos styles CSS si nécessaire */
+        #image {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-size: cover;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="image">
+    <p id="imageText">Hover over an image below to display here.</p>
+</div>
+
+<img id="pic1" src="image1.jpg" alt="Description of Image 1" onmouseover="upDate(this)" onmouseout="unDo()">
+<img id="pic2" src="image2.jpg" alt="Description of Image 2" onmouseover="upDate(this)" onmouseout="unDo()">
+
+<script>
+    function upDate(previewPic) {
+        var altText = previewPic.alt;
+
+        var imageDiv = document.getElementById('image');
+        imageDiv.style.backgroundImage = "url('" + previewPic.src + "')";
+
+        var imageText = document.getElementById('imageText');
+        imageText.innerHTML = altText;
+    }
+
+    function unDo() {
+        var imageDiv = document.getElementById('image');
+        imageDiv.style.backgroundImage = "url('')";
+
+        var imageText = document.getElementById('imageText');
+        imageText.innerHTML = "Hover over an image below to display here.";
+    }
+</script>
+
+</body>
+</html>
